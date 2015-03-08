@@ -1,0 +1,5 @@
+<idea-plugin version="2">
+  <extensions defaultExtensionNs="com.intellij">
+    <psi.referenceContributor implementation="com.intellij.psi.css.impl.util.HAMLCssReferenceContributor"/>
+  </extensions>
+</idea-plugin>

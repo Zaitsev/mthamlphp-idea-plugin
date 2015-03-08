@@ -1,0 +1,75 @@
+<idea-plugin version="2">
+  <id>com.vlz.intellij.plugins.hamlphp</id>
+  <name>MTHAML-php</name>
+  <version>0.18</version>
+  <vendor email="vladzaitsev@gmail.com.com" url="https://github.com/Zaitsev">YourCompany</vendor>
+
+  <description><![CDATA[
+     HAML template support.<br>
+      <em>:php filter added</em>
+    ]]></description>
+
+  <change-notes><![CDATA[
+      Add change notes here.<br>
+      <em>most HTML tags may be used</em>
+    ]]>
+  </change-notes>
+
+  <!-- please see http://confluence.jetbrains.com/display/IDEADEV/Build+Number+Ranges for description -->
+  <idea-version since-build="131"/>
+
+  <!-- please see http://confluence.jetbrains.com/display/IDEADEV/Plugin+Compatibility+with+IntelliJ+Platform+Products
+       on how to target different products -->
+  <!-- uncomment to enable plugin in all products
+  <depends>com.intellij.modules.lang</depends>
+  -->
+
+  <depends>com.intellij.modules.lang</depends>
+  <depends optional="true" config-file="haml-css.xml">com.intellij.css</depends>
+  <depends optional="true" config-file="haml-watcher.xml">com.intellij.plugins.watcher</depends>
+
+  <extensionPoints>
+    <extensionPoint qualifiedName="com.intellij.haml.injected.ast.factory" interface="org.jetbrains.plugins.haml.HAMLInjectedASTFactory"/>
+    <extensionPoint qualifiedName="com.intellij.haml.attr.provider" interface="org.jetbrains.plugins.haml.psi.HAMLAttributeProvider"/>
+  </extensionPoints>
+
+  <extensions defaultExtensionNs="com.intellij">
+    <errorHandler implementation="com.intellij.diagnostic.ITNReporter"/>
+    <!-- HAML -->
+    <fileTypeFactory implementation="org.jetbrains.plugins.haml.HAMLFileTypeFactory"/>
+    <!--
+    <fileTypeIndentOptionsProvider implementation="org.jetbrains.plugins.haml.HAMLIndentOptionsProvider"/>
+    -->
+    <lang.parserDefinition language="HAML" implementationClass="org.jetbrains.plugins.haml.HAMLParserDefinition"/>
+    <lang.syntaxHighlighterFactory key="HAML" implementationClass="org.jetbrains.plugins.haml.highlighter.HAMLSyntaxHighlighterFactory"/>
+    <colorSettingsPage implementation="org.jetbrains.plugins.haml.highlighter.HAMLColorsPage"/>
+    <lang.ast.factory language="HAML" implementationClass="org.jetbrains.plugins.haml.HAMLAstFactory"/>
+    <lang.commenter language="HAML" implementationClass="org.jetbrains.plugins.haml.HAMLCommenter"/>
+    <annotator language="HAML" implementationClass="org.jetbrains.plugins.haml.highlighter.HAMLAnnotator"/>
+    <lang.foldingBuilder language="HAML" implementationClass="org.jetbrains.plugins.haml.folding.HAMLFoldingBuilder"/>
+    <lang.braceMatcher language="HAML" implementationClass="org.jetbrains.plugins.haml.highlighter.HAMLBraceMatcher"/>
+    <liveTemplateContext implementation="org.jetbrains.plugins.haml.HamlLiveTemplateContextType"/>
+    <enterHandlerDelegate implementation="org.jetbrains.plugins.haml.HAMLEnterHandler" order="after EnterBetweenBracesHandler"/>
+    <spellchecker.support language="HAML" implementationClass="org.jetbrains.plugins.haml.HAMLSpellcheckerStrategy"/>
+    <multiLangCommenter implementation="org.jetbrains.plugins.haml.HAMLCommentProvider"/>
+    <xml.xmlExtension implementation="org.jetbrains.plugins.haml.codeInsight.HAMLXmlExtension"/>
+    <breadcrumbsInfoProvider implementation="org.jetbrains.plugins.haml.breadcrumbs.HAMLBreadcrumbsInfoProvider"/>
+    <langCodeStyleSettingsProvider implementation="org.jetbrains.plugins.haml.settings.HAMLLanguageCodeStyleSettingsProvider"/>
+    <codeStyleSettingsProvider implementation="org.jetbrains.plugins.haml.settings.HAMLCodeStyleSettingsProvider"/>
+
+    <multiHostInjector implementation="com.vlz.intellij.plugins.hamlphp.filters.HamlFilterInjector"/>
+  </extensions>
+
+  <application-components>
+    <!-- Add your application components here -->
+  </application-components>
+
+  <project-components>
+    <!-- Add your project components here -->
+  </project-components>
+
+  <actions>
+    <!-- Add your actions here -->
+  </actions>
+
+</idea-plugin>
