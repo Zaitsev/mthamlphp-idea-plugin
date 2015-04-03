@@ -1,7 +1,7 @@
 <idea-plugin version="2">
   <id>com.vlz.intellij.plugins.hamlphp</id>
   <name>MTHAML-php</name>
-  <version>0.18</version>
+  <version>1.01</version>
   <vendor email="vladzaitsev@gmail.com.com" url="https://github.com/Zaitsev">YourCompany</vendor>
 
   <description><![CDATA[

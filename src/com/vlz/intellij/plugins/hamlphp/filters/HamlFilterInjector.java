@@ -35,6 +35,7 @@ public class HamlFilterInjector
         HAML_FILTER_TO_LANGUAGE_ID_MAP.put("coffee", "CoffeeScript");
         HAML_FILTER_TO_LANGUAGE_ID_MAP.put("erb", "RHTML");
         HAML_FILTER_TO_LANGUAGE_ID_MAP.put("php", "PHP");
+        HAML_FILTER_TO_LANGUAGE_ID_MAP.put("haml", "yaml");
     }
 
     public void getLanguagesToInject(@NotNull MultiHostRegistrar registrar, @NotNull PsiElement element)
